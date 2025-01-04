@@ -1,0 +1,22 @@
+
+hot-naniai
+CnbmdgQlXIj4oUt
+
+ SQL　： hot-naniai
+ 　　 ： 54ItfOjiw
+ データベース名 ： hot-naniai
+ ホスト　　　　 ： localhost
+ ※ https://sd016.just-size.net/adminer/ からアクセス
+ ※ 
+
+
+kyum.chu.jp
+pass:1R18%dbyo$AX
+Wordpress Pass: 1R18dbyo
+acham.bob@gmail.com
+
+データベース接続
+サーバー	mysql303.phy.lolipop.lan
+データベース名	LAA1590428-kyum
+アカウント	LAA1590428
+パスワード	k1lt7Ovl

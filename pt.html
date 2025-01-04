@@ -1,0 +1,374 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>３区のスケジュール</title>
+    <script type="text/javascript" src="sc.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="schedule.css">
+    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+    <style>
+        /*ハンバーガーアイコン*/
+        .btn-burger {
+            cursor: pointer;
+            display: block;
+            width: 56px;
+            height: 60px;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+
+        /*ハンバーガーアイコンを作る三本線*/
+        .top-icon, .top-icon:before, .top-icon:after {
+            position: absolute; /* absolute:絶対位置への配置 */
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            height: 2px; /*線の太さ*/
+            width: 35px; /*線の長さ*/
+            background-color: #444;
+            border-radius: 2px; /* 矩形で線モドキを書く */
+            display: block;
+            content: '';
+            font-size: 0.85em;
+            cursor: pointer;
+            margin: auto;
+        }
+
+            /*三本線の間隔*/
+            .top-icon:before { /* top-icon スタイルが適用される直前の疑似要素 */
+                content: 'MENU';
+                /*top: 20px;*/
+            }
+
+            .top-icon:after { /* top-icon スタイルが適用された直後の疑似要素 */
+                content: '';
+                top: -20px;
+            }
+
+        /*チェックボックス非表示*/
+        .nav-toggle {
+            display: none;
+        }
+
+            /*アイコンをクリックしたら*/
+            .nav-toggle:checked ~ .btn-burger .top-icon { /* '~'は一般兄弟結合子と言い、関連する要素を選択するときに使う。 */
+                /* .btn-burger と .top-icon に対して checked されたら　  */
+                background: transparent; /* 線を消す */
+                /*transform: rotate(25deg);					/* beforeの線を45°傾ける */
+                border-radius: 10px; /* 矩形で線モドキを書く */
+            }
+
+                .nav-toggle:checked ~ .btn-burger .top-icon:before {
+                    /*transform: rotate(-15deg);				/* beforeの線を45°傾ける */
+                    top: -20; /* 線を中心線に重ねる */
+                    font-size: 0.8em;
+                    content: 'CLOSE';
+                    /*transform: rotate(0deg);					/* beforeの線を45°傾ける */
+                }
+
+                .nav-toggle:checked ~ .btn-burger .top-icon:after {
+                    /*transform: rotate(15deg);					/* afterの線を25°傾ける */
+                    /*transform: rotate(45deg);					/* afterの線を45°傾ける */
+                    top: -20; /* 線を中心線に重ねる */
+                }
+
+        .top-icon,
+        .top-icon:before,
+        .top-icon:after {
+            transition: all .8s; /* 変化させる時間 */
+        }
+
+        /*中身*/
+        .nav {
+            background-color: #91b0b6;
+        }
+
+        .nav-list a {
+            display: block;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: none;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+            .nav-list li {
+                margin: 0;
+                padding: 10px;
+            }
+
+        .nav-toggle:checked ~ .nav .nav-list {
+            display: block;
+        }
+
+        /*メインイメージ*/
+        .top {
+            height: 200px;
+            margin-bottom: 50px;
+            background-color: #f0f8ff;
+        }
+
+        /* --------------------------------------------------
+          幅768px以上のスタイル指定 ここから
+        -------------------------------------------------- */
+        screen and (min-width: 768px) {
+            .nav
+
+        {
+            background-color: #d4cd60;
+            border: 3px inset #5ecafc;
+        }
+
+        /* ハンバーガーボタン */
+        .btn-burger {
+            display: none; /*768px以上では使用しない */
+        }
+
+        header {
+            padding: 30px 0 0;
+        }
+
+        .logo {
+            width: auto;
+            margin: 0 0 20px;
+            padding: 0;
+            text-align: center;
+        }
+
+        .nav-toggle:checked ~ .nav .nav-list {
+            display: none;
+        }
+
+        .nav {
+            height: 75px;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            height: 75px;
+            align-items: center;
+        }
+            /*.nav-list li:not(:last-child) { last-child指定は最後のメニューだけ別動作にしたいときに定義する */
+            .nav-list li {
+                color: #11101f;
+                background: #2e864d;
+                background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #1b7e40), to(#20b958));
+                border: 3px inset #728cc7;
+                border-right: 1px solid #fff;
+                border-radius: 1rem;
+                margin-left: 2px;
+            }
+
+        }
+
+        a.btn--upload {
+            background-color: #61eb00;
+        }
+
+
+        /* [必須]マーク */
+        .RequiredLabel:after {
+            margin-left: 1.0em;
+            padding: 0px 6px 0px 6px;
+            border-radius: 4px;
+            font-size: 0.6em;
+            color: white;
+            background-color: #C44;
+            display: inline-block;
+            _display: inline;
+            white-space: nowrap;
+            content: "必須";
+        }
+
+        .cp_iptxt {
+            position: relative;
+            width: 80%;
+            margin: 40px 3%;
+        }
+
+            .cp_iptxt input[type=text] {
+                /*font: 15px/24px sans-serif;*/
+                box-sizing: border-box;
+                width: 100%;
+                /*margin: 8px 0;*/
+                padding: 0.3em;
+                transition: 0.3s;
+                border: 1px solid #1b2538;
+                border-radius: 4px;
+                outline: none;
+            }
+
+                .cp_iptxt input[type=text]:focus {
+                    border-color: #da3c41;
+                }
+
+            .cp_iptxt input[type=text] {
+                padding-left: 4px; /* 入力TEXTの開始位置 */
+            }
+
+            .cp_iptxt i {
+                position: absolute;
+                top: 8px;
+                left: 0;
+                padding: 9px 8px;
+                transition: 0.3s;
+                color: #aaaaaa;
+            }
+
+            .cp_iptxt input[type=text]:focus + i {
+                color: #da3c41;
+            }
+
+        /* 基本のセレクトボックスのカスタマイズ */
+        .date_sel {
+            background: #cfce42;
+            height: 2.2em;
+            width: 4em;
+            border-radius: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+            .date_sel::after {
+                position: absolute;
+                content: '';
+                width: 2px;
+                height: 2px;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+                border-bottom: 2px solid #fff;
+                border-right: 2px solid #fff;
+                z-index: -1;
+            }
+
+        date_sel {
+            /* 初期化 */
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background: none;
+            border: none;
+            color: #333;
+            /*font-size: 16px;*/
+            width: 100%;
+            height: 100%;
+            padding: 0 3px;
+        }
+
+        // 参加対象班のマーク
+        .taiMaruHon {
+            text-align: center;
+        }
+
+        .taiMaruHon::after {
+            content: "部";
+            color: #2040A0;
+            font-size: 8px;
+        }
+
+        .taiMaruHan {
+            text-align: center;
+        }
+
+            .taiMaruHan::after {
+                content: "区";
+                color: #2040A0;
+                font-size: 8px;
+            }
+    </style>
+
+
+
+
+    <script>
+		if (document.location.search.match(/type=embed/gi)) {
+			window.parent.postMessage("resize", "*");
+		}
+    </script>
+</head>
+<body>
+    <h2><a href="scx.cgi"><img src="./img/home_mark.png" class="home-icon"></a>活動報告書の作成</h2>
+    <div class="drawer">
+        <input type="checkbox" name="navToggle" id="navToggle" class="nav-toggle">
+        <label for="navToggle" class="btn-burger">
+            <span class="top-icon"></span>
+        </label>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li>ホーム 3</li>
+                <li><a href="scx.cgi?hanno=3&mode=nendolist&start=">行事リスト </a></li>
+                <li><a href="scx.cgi?hanno=3&mode=nendoSanka&start=">参加リスト </a></li>
+                <li><a href="kk.cgi">会計 </a></li>
+                <li>
+                    <a href="kf/katsudoufuku.html">その他 </a><ul class="second-level">
+                        <li><a href="https://kyum.nido.jp/syobo/okurenger.html">長野市消防団 安否確認サービス </a></li>
+                        <li><a href="http://nagano-bousai.jp/mail_service.html">長野市防災メール登録 </a></li>
+                        <li><a href="https://www.shinshu-oenshop.net">信州消防団員応援ショップ </a></li>
+                        <li><a href="kf/katsudoufuku.html">活動服サイズ表 </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--script src="../pdfmake/build/pdfmake.min.js"></script-->
+    <script src="../pdfmake/build/pdfmake.js"></script>
+    <script src="../pdfmake/build/vfs_fonts.js"></script>
+
+    <button id="create">PDF作成</button>
+    <!--script type="module" src="SyoboPDF.js"></script-->
+    <script>
+        //pdfMake.vfs = pdfFonts.pdfMake.vfs;
+        //pdfMake.fonts = {
+        //    ipa: {
+        //        normal: "ipagp.ttf",
+        //        bold: "ipagp.ttf"
+        //        //normal: "../pdfmake/build/fonts/ipagp.ttf",
+        //        //bold: "../pdfmake/build/fonts/ipagp.ttf"
+        //    }
+        //};
+        document.getElementById("create").addEventListener("click", function () {
+            // contentにPDFに出力する内容を設定
+            var pdfContent = {
+                content: [
+                    { text: "pdfmake", fontSize: 20 },
+                    { text: "サンプル", margin: [5, 5, 5, 20] },
+                    {
+                        layout: 'lightHorizontalLines', // optional
+                        table: {
+                            // headers are automatically repeated if the table spans over multiple pages
+                            // you can declare how many rows should be treated as headers
+                            headerRows: 1,
+                            widths: ['*', 'auto', 100, '*'],
+                            body: [
+                                ['First', 'Second', 'Third', 'The last one'],
+                                ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                                [{ text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4']
+                            ]
+                        }
+                    }
+                ]
+            };
+
+            // PDFを生成してブラウザに表示
+            pdfMake.createPdf(pdfContent).open();
+        })
+    </script>
+    <br><hr>
+    <a class="btn--orange" href="scx.cgi?hanno=3&mode=nendolist&start=">行事リスト</a>
+    <a class="btn--orange" href="scx.cgi?hanno=3&mode=nendoSanka&start=">参加リスト</a>
+    <a class="btn--orange" href="https://kyum.nido.jp/syobo/okurenger.html">長野市消防団 安否確認サービス</a>
+    <br>

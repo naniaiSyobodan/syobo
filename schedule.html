@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">	<!-- ※文字コード -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">	<!-- ※モバイル対応 -->
+
+	<title>倉並班のスケジュール</title>	<!-- タイトル -->
+
+	<link rel="stylesheet" type="text/css" href="schedule.css">	<!-- ※スタイルシート -->
+</head>
+
+<body>
+	<h1>倉並班スケジュール</h1>
+
+	<p class="topguide">
+		<!-- ▼ここにスケジュールデータの最終更新日が挿入されます。 -->
+		<<lastmodifytime>>現在のスケジュールです。<br>
+	</p>
+
+	<h2>●月間スケジュール</h2>
+
+	<div class="schedule">
+		<<calendarschedule>>
+		<p class="nextcalendar">
+			<!-- ▼ここに次の期間のカレンダーを表示するためのリンクが挿入されます。(下記の記述を削除すれば、リンクは表示されません。) -->
+			<<calendarlink>>
+		</p>
+
+		<p class="notice">
+			---日付未定行事---<br>
+			消防設備周りの草刈　６月・８月の２回<br>
+			七二会分団教養訓練　８月後半<br>
+		</p>
+
+	</div>
+
+	<div class="footerbox">
+		<p class="back">
+			<a href="sc.cgi">HOMEへ戻る</a>
+		</p>
+	</div>
+
+</body>
+</html>

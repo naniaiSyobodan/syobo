@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>分団本部のスケジュール</title>
+
+
+	<style>
+		.exUp {
+			display: inline-block;
+			background-color: #ededed;
+			width: 200px;
+			height: 50px;
+			padding: 20px 10px;
+			border-radius: 20px;
+			position: relative;
+		}
+		.exUp::before {
+			content: "";
+			width: 0px;
+			height: 0px;
+			border-style: solid;
+			/* 上向き三角形指定 */
+			border-color: transparent transparent #ededed transparent;
+			/*	極が1つ指定された属性、全4辺にあり色があります。
+				値が2つ指定された場合、1目の色々つは上下、2目はつ左右の辺りに適用される。
+				極が3つ指定された属性、1つ目色上、2つ目は消え、3つ目は下の辺にしく。
+				極が4つ指定された属性、高上、右、下、左の順（時計回り）に時計回り。*/
+			border-width: 0px 20px 20px 20px;
+			position : absolute;
+			bottom: -20px;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+		
+		.exUnder {
+			display: inline-block;
+			background-color: #ededed;
+			width: 200px;
+			height: 50px;
+			padding: 20px 10px;
+			border-radius: 20px;
+			position: relative;
+		}
+		.exUnder::after {
+			content: "";
+			width: 0px;
+			height: 0px;
+			border-style: solid;
+			/* 下向き三角形指定 */
+			border-color: #ededed transparent transparent transparent;
+			border-width: 20px 20px 0px 20px;
+			position : absolute;
+			bottom: -20px;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+	</style>
+</head>
+  
+<body>
+
+<div class="exUp"><p>上向き三角形</p></div>
+<br><br><br>
+<div class="exUnder"><p>下向き三角形</p></div>
+<a href=mailto:info@sample.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&amp;body=%E4%B8%8B%E8%A8%98%E9%A0%85%E7%9B%AE%E3%81%AE%E3%80%8C%E3%80%8D%E3%81%AB%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%E8%A8%98%E5%85%A5%E3%81%97%E3%81%A6%E9%80%81%E4%BF%A1%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0D%0A%0D%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%0D%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%E3%80%8C%E3%80%8D%0D%0A%0D%0A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%EF%BC%9A%E3%80%8C%E3%80%8D%0D%0A%0D%0A%E4%BD%8F%E6%89%80%EF%BC%9A%E3%80%8C%E3%80%8D%0D%0A%0D%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D">
+	<img src="img/ishizakaQR.png">
+</a>
+
+<a href=mailto:mishizaka-0721kr@ezweb.ne.jp?subject=XX班のオレだが&amp;body=以上">
+	<img src="img/ishizakaQR.png">
+</a>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html><html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>長野市消防団 安否確認サービス</title>
+	<link rel="stylesheet" type="text/css" href="schedule.css">
+	<script>
+		if (document.location.search.match(/type=embed/gi)) {
+			window.parent.postMessage("resize", "*");
+		}
+	</script>
+		
+	<style>
+		.detail {
+			line-height: 1.5;
+			/* 文字の行間を調節 [数字のみ:Fontを基準に指定 / **px:Pixel指定 / **%:Fontを基準に％指定] */
+			position: relative;
+			/* 要素を好きな位置に固定する　[static:配置方法を指定しません / relative:相対位置への配置 / absolute:絶対位置への配置 / fixed:スクロールしても位置が固定されたまま ]
+									/* 関連：[top・bottom・left・right  */
+			display: inline-block;
+			/* 要素の表示形式 [block:要素が横までいっぱいに広がり、縦に並んでいく / inline:要素が平ぺったく横に並んでいく / inline-block:blockとinlineの中間 / none:非表示 ] */
+			padding: 0.5rem 0.5rem;
+			/* paddingはborderで指定された境界とその中のコンテンツの間の余白を設定するプロパティです。 */
+			/* ※remはルートのフォントサイズを1として考える単位 
+										基本的にブラウザのデフォルトのフォントサイズは16pxであり、html要素にfont-size: 62.5%を指定することで、pxにすると10pxになります。*/
+			/*margin: 1rem 1rem		/* marginがborderの外側の余白なのに対して、paddingはborderの内側の余白となります。 */
+			/* 　パラメータ指定は
+										・1つだけ設定した場合：上下左右すべてに指定した数値の余白ができます。
+										・2つ設定した場合：1つめの数値が上下に、2つめの数値が左右に適用されます。
+										・3つ設定した場合：1つめの数値が上に、2つめの数値が左右に、3つめの数値が下に適用されます。
+										・4つ設定した場合：1つめの数値が上になり、次に右、下、左と時計回りの順番で適用されます。	 */
+			cursor: pointer;
+			/* マウスカーソル形状（主なもの) [default	:普通の矢印 / pointer:指差しの手 / text:テキスト用Iビーム */
+			text-decoration: none;
+			/* 	文字の装飾
+										[none:無し / underline:下線 / overline:上線 / line-through:取消線 / blink:点滅 / underline dotted red:赤点線の下線]
+										text-decoration-line	
+										text-decoration-styleは、solid	[solid:実線（初期値） / double:二重線 / dotted:点線 / dashed:破線 / wavy:波線 ]
+										text-decoration-color テキスト傍線の色を指定する #000000（完全な黒）～#ffffff（完全な白）、 カラーネーム、 RGB などで色を指定 */
+			letter-spacing: 0.1em;
+			/* 文字どうしの間隔（＝字間）の設定 
+										[normal←初期値(ブラウザが自動的に字間を決めてくれるが、実際0になることがほとんど) / 数値+px:決まったpx数で字間を指定 / 数値+em:フォントの高さに応じて字間が決まる] */
+			color: #37270e;
+			/* 文字の色 */
+			font-size: 1.2em;
+		}
+
+	</style>
+</head>
+<body>
+<h2><a href="sc.cgi"><img src="./img/home_mark.png" class="home-icon"></a>長野市消防団<br>　　安否確認サービス<br>　　オクレンジャーについて</h2>
+
+
+<div class="detail">スマートフォンのアプリで通知を受け取る場合は、以下からダウンロードしてください。</div><br>
+<a class="btn--orange" href="https://play.google.com/store/apps/details?id=jp.ocrenger.android">android用</a><br><br>
+<a class="btn--orange" href="http://itunes.apple.com/jp/app/okurenja/id523045929">IOS用</a><br><br>
+<hr><div class="detail">
+	メールで通知を受け取る場合は、<a class="btn--orange" href="mailto:reg@pasmail.jp?subject=長野市消防団 安否確認サービスに登録&amp;body=メールアドレスを登録します">こちら</a>に空メールを送信してください。<br>
+	５分以内に返信メールが届きます。記載されているリンクを開き、IDを入力して<input type="button" value="登録">ボタンを押してください。<br>
+	登録完了メールが届いたら完了です。
+	</div>
+<hr>
+<a class="btn--orange" href="https://www.ocrenger.jp/manual/faq">ＦＡＱ</a><br>
+
+</body>
+</html>
+

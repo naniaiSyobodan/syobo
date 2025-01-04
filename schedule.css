@@ -1,0 +1,668 @@
+/* ============================================================================== */
+/* Fumy Teacher's Schedule Board CGI 表示用スタイルシート(Designed for Ver 2.3.0) */
+/* ============================================================================== */
+
+/* ※モバイル対応版CSS : 2016/09/11 */
+/* ------------------ */
+/* ▼ページ全体の装飾 */
+/* ------------------ */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: palegoldenrod;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+/* ------------------ */
+/* ▼ヘッダ部分の装飾 */
+/* ------------------ */
+
+.headerbox {
+    background-color: darkgreen;
+    color: white;
+}
+
+.headerbox:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.headerbox .pagename {
+    font-size: 1.5em;
+    font-family: "Times New Roman", Verdana;
+    font-style: italic;
+    padding: 3px;
+    margin: 0px;
+}
+
+.headerbox .adminlink {
+    margin: 5px;
+    padding: 0px;
+    width: 7.5em;
+    float: right;
+}
+
+.headerbox .adminlink a {
+    display: inline-block;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    background-color: skyblue;
+    background-image: linear-gradient( 180deg, skyblue, #8080ff 25%, blue);
+    color: white;
+    line-height: 1.2;
+}
+
+.headerbox .adminlink a:hover {
+    background-color: #ffffcc;
+    background-image: linear-gradient( 180deg, #ffffaa, #ffffcc 55%, white);
+    color: blue;
+}
+
+.headerbox .adminlink a small {
+    display: inline-block;
+    font-size: 0.7em;
+}
+
+
+/* -------------------------- */
+/* ▼ページタイトル部分の装飾 */
+/* -------------------------- */
+
+h1 {
+    margin: 0.2em 0px;
+    line-height: 0.8;
+    text-align: center;
+    font-weight: normal;
+}
+
+/* -------------------------- */
+/* ▼ページ上部の案内文章区画 */
+/* -------------------------- */
+
+.topguide {
+    margin: 1em 3%;
+    padding: 0px;
+}
+
+
+/* -------------------------- */
+/* ▼パーツタイトル部分の装飾 */
+/* -------------------------- */
+
+h2 {
+    margin: 1.5em 3% 1em 3%;
+    padding: 0.35em 0px 0.25em 3px;
+    line-height: 1.2;
+    font-weight: normal;
+    background-color: #fffff0;
+    color: maroon;
+    border-style: solid;
+    border-color: maroon;
+    border-width: 0px 0px 3px 0px;
+}
+
+.home-icon {
+    width: 3rem;
+    height: 1.5rem;
+}
+
+calender-date {
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    padding: 0px 1px 0px 1px;
+    background-color: #115717;
+    color: rgb(226, 176, 176);
+    border-style: solid;
+    border-color: rgb(36, 17, 80);
+    border-width: 1px 1px 3px 1px;
+}
+
+/* -------------------- */
+/* ▼各パーツ共通の装飾 */
+/* -------------------- */
+.schedule {
+    margin: 1em 3%;
+}
+
+.schedule table {
+    margin: 1.5em auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    max-width: 100%;
+}
+
+.schedule table tr:nth-child(odd) {
+    background-color: #eee
+}
+
+.schedule table th {
+    text-align: center;
+    border: 1px solid black;
+    background-color: #ffffcc;
+    padding: 0.35em 0.5em;
+    line-height: 1.2;
+}
+
+.schedule table td {
+    text-align: center;
+    color: white;
+    background: linear-gradient(#829ebc, #225588);
+    border-left: 1px solid #3c6690;
+    border-top: 1px solid #3c6690;
+    border-bottom: 1px solid #3c6690;
+    box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset;
+    width: 25%;
+    padding: 10px 0;
+}
+
+.schedule caption {
+    font-size: 1.0em;
+    font-weight: bold;
+}
+
+/* --------------------------------------------- */
+/* ▼パーツ『1週間の汎用スケジュール』向けの装飾 */
+/* --------------------------------------------- */
+
+table.weekly {
+    border: 2px solid black;
+    /* 外枠を太く */
+}
+
+table.weekly thead th {
+    border-bottom: 3px double black;
+    /* 下線を二重線に */
+    background-color: #ffffaa;
+    /* 背景を濃く */
+}
+
+table.weekly tbody th,
+table.weekly tbody td {
+    border: 1px solid gray;
+    /* 枠線を灰色に */
+    font-size: 0.95em;
+    /* 文字を少し小さく */
+}
+
+
+/* --------------------------------------------------- */
+/* ▼パーツ『1月間スケジュール(カレンダー)』向けの装飾 */
+/* --------------------------------------------------- */
+
+table.monthly {
+    margin: 1em auto 2em auto;
+}
+
+
+/* ▼カレンダーのヘッダ部分 */
+
+table.monthly th {
+    width: 90px;
+    font-size: 0.9em;
+    background-color: #ffffcc;
+}
+
+table.monthly th.weekdays {
+    color: black;
+}
+
+
+/* 月～金の文字色 */
+table.monthly th.sunday {
+    color: red;
+}
+
+
+/* 日曜日の文字色 */
+table.monthly th.saturday {
+    color: darkblue;
+}
+
+
+/* 土曜日の文字色 */
+/* ▼カレンダーの本体部分 */
+table.monthly td {
+    font-size: 0.9em;
+    height: 3em;
+}
+
+table.monthly td.weekdays {
+    color: black;
+    background-color: white;
+}
+
+
+/* 平日の装飾 */
+
+table.monthly td.saturday {
+    color: darkblue;
+    background-color: #f0f0ff;
+}
+
+
+/* 土曜日の装飾 */
+
+table.monthly td.sunday {
+    color: red;
+    background-color: #fff0f0;
+}
+
+
+/* 日曜日の装飾 */
+
+table.monthly td.holiday {
+    color: red;
+    background-color: #fff0f0;
+}
+
+
+/* 祝日の装飾 */
+
+span.holname {
+    font-size: xx-small;
+    /* 祝日の名称 */
+    padding-left: 3px;
+}
+
+
+/* ▼モバイル向け装飾 */
+
+@media all and (max-width: 479px) {
+    table.monthly th,
+    table.monthly td {
+        font-size: 0.75em;
+        /* 文字サイズを小さくする */
+        padding: 0.35em 1px;
+        /* 左右の余白を最小限にする */
+    }
+}
+
+
+/* ▼次のカレンダーに進むリンク区画 */
+
+.nextcalendar {
+    text-align: right;
+    margin: 1em;
+}
+
+
+/* ▼凡例 */
+
+.notice {
+    font-size: 0.9em;
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid gray;
+    border-radius: 1em;
+    background-color: white;
+}
+
+
+/* -------------------------------- */
+/* ▼パーツ『長期予定表』向けの装飾 */
+/* -------------------------------- */
+table.longrange {
+    border: 2px solid black;
+    /* 外枠を太く */
+}
+
+table.longrange th {
+    color: black;
+    background-color: #ffffcc;
+    border-bottom: 3px double black;
+    /* 下線を二重線に */
+}
+
+table.longrange td {
+    font-size: 0.95em;
+    color: black;
+    background-color: white;
+}
+
+table.longrange th.date {}
+
+table.longrange th.contents {
+    width: 30em;
+}
+
+
+/* -------------------------------- */
+/* ▼パーツ『活動予定表』向けの装飾 */
+/* -------------------------------- */
+
+table.katsudo_hyo {
+    border: 3px solid gray;
+    border-collapse: collapse;
+    background-image: url(hyo_haikei.png);
+}
+
+table.katsudo_hyo th {
+    border: 3px solid gray;
+    vertical-align: top;
+    background: #d8bfd8;
+    color: #0000af;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+table.katsudo_hyo td {
+    border: 1px solid blue;
+    vertical-align: top;
+    box-shadow: 0px -3px 5px 1px #eee inset;
+}
+
+
+/* -------------------------------- */
+/* ▼パーツ『行事詳細』向けの装飾 */
+/* -------------------------------- */
+
+table.gyoji_hyo {
+    border: 3px solid gray;
+    border-collapse: collapse;
+    background-image: url(hyo_haikei.png);
+}
+
+table.gyoji_hyo th {
+    border: 3px solid gray;
+    vertical-align: top;
+    background: #d8bfd8;
+    color: #0000af;
+}
+
+table.gyoji_hyo td {
+    border: 1px solid blue;
+    vertical-align: top;
+    box-shadow: 0px -3px 5px 1px #eee inset;
+}
+
+
+/*td:nth-of-type(1) {	/* 列の先頭の色を変える *-
+	background: #ffd700;
+}
+tr:nth-child(even) {	/* １行ごとに色を変える *-
+	background: #fafad2;
+}*/
+
+
+/* -------------------------------- */
+/* ▼パーツ『年度ドロップダウン』向けの装飾 */
+/* -------------------------------- */
+
+.nen_select {
+    overflow: hidden;
+    margin: 1em auto;
+    padding: 0.5em;
+    text-align: left;
+}
+
+.nen_select select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    padding: 0 10px;
+    height: 40px;
+    width: 300px;
+    position: relative;
+    background: #cfcedb;
+    /* url({https://ginneko-atelier.com}/assets/arrow.svg) no-repeat right 10px center / 16px auto;*/
+}
+
+
+/* ------------------ */
+/* ▼フッタ部分の装飾 */
+/* ------------------ */
+
+.footerbox {
+    background-color: darkgreen;
+    color: white;
+}
+
+.footerbox a {
+    color: white;
+}
+
+.footerbox .back {
+    margin: 0px;
+    padding: 1em;
+    text-align: center;
+}
+
+.footerbox .adminlink {
+    margin: 0px;
+    padding: 0px 1em;
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.copyright {
+    margin: 0px;
+    padding: 1em;
+    font-size: 0.8em;
+}
+
+
+/* 汎用の装飾 */
+
+a:hover {
+    background-color: #ffffcc;
+    color: red;
+}
+
+
+/* ------------------ */
+/* Selectboxの装飾 */
+/* ------------------ */
+
+
+/*-moz-appearance: none;	/* ベンダープレフィックス : Mozilla Firefox */
+
+
+/*-webkit-appearance: none;	/* ベンダープレフィックス : Google Chrome、Safari 、Opera、Microsoft Edge */
+
+.selectbox {
+    width: auto;
+    margin: 0em auto;
+    position: relative;
+}
+
+select {
+    moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    width: auto;
+    padding: 0.5em 0.5em;
+    box-sizing: border-box;
+    font-size: 1em;
+    border: #ccc 1px solid;
+    border-radius: 0;
+    background: #fff;
+}
+
+.selectbox::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 5%;
+    top: 35%;
+    border-bottom: #333 2px solid;
+    border-right: #333 2px solid;
+    transform: rotate(45deg)translateY(-30%);
+}
+
+.color.selectbox select {
+    background: blue;
+    color: #fff;
+    border-radius: 2em;
+}
+
+.color.selectbox::after {
+    border-bottom: #fff 5px solid;
+    border-right: #fff 5px solid;
+}
+
+.btn--orange,
+a.btn--orange {
+    font-size: 1em;
+    color: #fff;
+    background-color: #eb6100;
+    line-height: 0.1;
+    position: relative;
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 10px 10px;
+    cursor: pointer;
+    letter-spacing: -0.1em;
+    color: #212529;
+    border-radius: 0.3rem;
+    color: rgb(75, 60, 60);
+    background-image: -webkit-gradient(linear, left top, right top, from(#2af598), to(#009efd));
+    background-image: -webkit-linear-gradient(left, #87948e 0%, #009efd 100%);
+    background-image: linear-gradient(90deg, #2af598 0%, #009efd 100%);
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+
+.btn--upload,
+a.btn--upload {
+    background-color: #6100eb;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+
+.link-inline {
+    display: inline-block;
+}
+
+.btn--orange:hover,
+a.btn--orange:hover {
+    /*color: #fff;
+	background: #f56500;*/
+    -webkit-transform: skew(0);
+    transform: skew(0);
+    color: #fff;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+}
+
+a.btn--radius {
+    border-radius: 100vh;
+}
+
+a.btn--yellow {
+    color: #000;
+    background-color: #fff100;
+    border-bottom: 5px solid #ccc100;
+}
+
+a.btn--yellow:hover {
+    margin-top: 3px;
+    color: #000;
+    background: #fff20a;
+    border-bottom: 2px solid #ccc100;
+}
+
+.kaisetsu {
+    line-height: 0.5;
+    /* 文字の行間を調節 [数字のみ:Fontを基準に指定 / **px:Pixel指定 / **%:Fontを基準に％指定] */
+    position: relative;
+    /* 要素を好きな位置に固定する　[static:配置方法を指定しません / relative:相対位置への配置 / absolute:絶対位置への配置 / fixed:スクロールしても位置が固定されたまま ]
+							/* 関連：[top・bottom・left・right  */
+    display: inline-block;
+    /* 要素の表示形式 [block:要素が横までいっぱいに広がり、縦に並んでいく / inline:要素が平ぺったく横に並んでいく / inline-block:blockとinlineの中間 / none:非表示 ] */
+    padding: 0.5rem 0.5rem;
+    /* paddingはborderで指定された境界とその中のコンテンツの間の余白を設定するプロパティです。 */
+    /* ※remはルートのフォントサイズを1として考える単位 
+								基本的にブラウザのデフォルトのフォントサイズは16pxであり、html要素にfont-size: 62.5%を指定することで、pxにすると10pxになります。*/
+    /*margin: 1rem 1rem		/* marginがborderの外側の余白なのに対して、paddingはborderの内側の余白となります。 */
+    /* 　パラメータ指定は
+								・1つだけ設定した場合：上下左右すべてに指定した数値の余白ができます。
+								・2つ設定した場合：1つめの数値が上下に、2つめの数値が左右に適用されます。
+								・3つ設定した場合：1つめの数値が上に、2つめの数値が左右に、3つめの数値が下に適用されます。
+								・4つ設定した場合：1つめの数値が上になり、次に右、下、左と時計回りの順番で適用されます。	 */
+    cursor: pointer;
+    /* マウスカーソル形状（主なもの) [default	:普通の矢印 / pointer:指差しの手 / text:テキスト用Iビーム */
+    text-decoration: none;
+    /* 	文字の装飾
+								[none:無し / underline:下線 / overline:上線 / line-through:取消線 / blink:点滅 / underline dotted red:赤点線の下線]
+								text-decoration-line	
+								text-decoration-styleは、solid	[solid:実線（初期値） / double:二重線 / dotted:点線 / dashed:破線 / wavy:波線 ]
+								text-decoration-color テキスト傍線の色を指定する #000000（完全な黒）～#ffffff（完全な白）、 カラーネーム、 RGB などで色を指定 */
+    letter-spacing: 0.1em;
+    /* 文字どうしの間隔（＝字間）の設定 
+								[normal←初期値(ブラウザが自動的に字間を決めてくれるが、実際0になることがほとんど) / 数値+px:決まったpx数で字間を指定 / 数値+em:フォントの高さに応じて字間が決まる] */
+    color: #e7c99c;
+    /* 文字の色 */
+    -webkit-transform: skew(0deg);
+    /*  */
+    transform: skew(0deg);
+    /* 要素に対して移動、回転、伸縮、傾斜の変形を加える
+				/* ↑ 15°傾ける 				matrix(p1,p2,p3,p4,p5)：　p1:x軸方向の拡大・縮小率、p2:y軸方向の傾斜率、p3:x軸方向の傾斜率、p4:y軸方向の拡大・縮小率、p5:x座標の移動距離、p6:y座標の移動距離
+											translateX:横移動 / translateY:縦移動	数値＋pxで指定する
+											rotate:回転 50degと指定すると５０度回転する　/
+											scale:伸縮 / 
+											skew:傾斜*/
+    border: 1px solid #9ed1b1;
+    /* ボーダーのスタイル・太さ・色をまとめて指定する
+											スタイル = 	none : ボーダー表示無し / hidden :ボーダー表示無し
+												solid: 1本線で表示 / double:2本線で表示 / groove:立体的に窪んだ線で表示 / ridge:立体的に隆起した線で表示
+												inset::上と左のボーダーが暗く、下と右のボーダーが明るく表示され、ボーダーで囲まれた領域全体が立体的に窪んだように表示
+												outset:上と左のボーダーが明るく、下と右のボーダーが暗く表示され、ボーダーで囲まれた領域全体が立体的に隆起したように表示
+												dashed:破線で表示 / dotted:点線で表示
+											太さ	 = 数値＋px / 数値＋px / thin（細い） / medium（普通） / thick（太い）
+											色	 = 文字の色 / transparent:透明
+
+										個別に指定する場合は 下のXXXを [top / bottom / left / right ]の何れかとする
+										border-XXX-color …… ボーダーの色を指定する
+										border-XXX-style …… ボーダーのスタイルを指定する
+										border-XXX-width …… ボーダーの太さを指定する
+										*/
+    border-radius: 1rem;
+    /* 角を丸くする 数値＋px / 数値＋rm で指定する 
+										個別に指定する場合は 下のXXXを [top-left / top-right / bottom-left / bottom-right ]の何れかとする
+										border-XXX-radius	*/
+    background: #b9e7c9;
+    /*  */
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #1b7e40), to(#20b958));
+    background: -webkit-linear-gradient(bottom, #1b7e40 50%, #20b958 100%);
+    background: linear-gradient(0deg, #1b7e40 50%, #20b958 100%);
+    -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, .6), 0 5px 10px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, .6), 0 5px 10px rgba(0, 0, 0, .1);
+}
+
+a.btn--allow {
+    font-size: 0.8em;
+    line-height: 0.5;
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    color: #e7c99c;
+    -webkit-transform: skew(0deg);
+    transform: skew(0deg);
+    border: 2px solid #011308;
+    border-radius: 1rem;
+    background: #b9e7c9;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #1b7e40), to(#20b958));
+    background: -webkit-linear-gradient(bottom, #1b7e40 50%, #20b958 100%);
+    background: linear-gradient(0deg, #1b7e40 50%, #20b958 100%);
+    -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, .6), 0 5px 10px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, .6), 0 5px 10px rgba(0, 0, 0, .1);
+}
+
+
+/* visual studio code で 
+	Previewするときは ctrl+shift+v を押す 
+	自動整形するときは Shift + Alt + Fを押す  
+	*/
